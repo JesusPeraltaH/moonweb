@@ -1,0 +1,226 @@
+/* Eliminar margen y padding por defecto en todos los elementos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Fondo y fuente general */
+body, html {
+    background-color: #1f1f1f; /* Fondo gris oscuro */
+    color: #f1f1f1; /* Texto gris claro */
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+
+
+/* Contenedor principal */
+.page-container {
+    display: flex;
+    width: 100vw; /* Asegura que se expanda completamente en el ancho */
+    height: 100vh;
+    background-color: #1f1f1f;
+  
+}
+
+/* Sidebar */
+.sidebar {
+    width: 200px;
+    background-color: #333333;
+    color: #f1f1f1;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.sidebar h2 {
+    color: #d4af37; /* Título del sidebar en dorado */
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    color: #f1f1f1;
+    text-decoration: none;
+    font-size: 1.1em;
+}
+
+.sidebar ul li a:hover {
+    color: #d4af37; /* Hover en dorado */
+}
+
+/* Contenedor principal del CRUD */
+.crud-container {
+    flex-grow: 1;
+    padding: 20px;
+    max-width: 900px;
+    margin: auto;
+    background-color: #1f1f1f;
+    border: none;
+}
+
+h1 {
+    text-align: center;
+    color: #d4af37; /* Dorado */
+}
+
+/* Formulario de creación */
+.crud-form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    gap: 10px;
+}
+
+.crud-input {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #777;
+    width: 300px;
+    background-color: #333;
+    color: #f1f1f1;
+}
+
+.crud-btn-create {
+    background-color: #d4af37;
+    color: #1f1f1f;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.crud-btn-create:hover {
+    background-color: #c29e30;
+}
+
+/* Tabla de items */
+.crud-table-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 5px;
+}
+
+.crud-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.crud-table th, .crud-table td {
+    padding: 10px;
+    border: 1px solid #444;
+    color: #f1f1f1;
+    text-align: center;
+}
+
+.crud-table thead {
+    background-color: #555;
+}
+
+.crud-table tbody tr:hover {
+    background-color: #333;
+}
+
+/* Botones de acción */
+.crud-action-btn {
+    background-color: transparent;
+    border: none;
+    color: #d4af37;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin: 0 5px;
+    transition: transform 0.2s;
+}
+
+.crud-action-btn:hover {
+    transform: scale(1.2);
+    color: #c29e30;
+}
+
+/* Modal para editar item */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro translúcido */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #2a2a2a; /* Fondo oscuro del modal */
+    padding: 30px;
+    border-radius: 10px;
+    width: 300px;
+    max-width: 80%;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    border: none;
+}
+
+.modal-content h2 {
+    color: #d4af37; /* Color del título en dorado */
+    margin-bottom: 20px;
+}
+
+.modal-content input {
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #555;
+    margin-bottom: 20px;
+    background-color: #333;
+    color: #f1f1f1;
+}
+
+.crud-btn-save {
+    background-color: #d4af37;
+    color: #1f1f1f;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.crud-btn-save:hover {
+    background-color: #c29e30;
+}
+
+.crud-btn-cancel {
+    background-color: #ff5c5c;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.crud-btn-cancel:hover {
+    background-color: #e94b4b;
+}
+
+/* Evitar resaltar botones o elementos al hacer click */
+button:focus, input:focus {
+    outline: none;
+}

@@ -1,0 +1,68 @@
+/* Estilo general */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #1f1f1f; /* Fondo negro */
+    color: #f1f1f1; /* Texto en blanco/gris claro */
+  }
+  
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    background-color: #1f1f1f; /* Fondo negro */
+  }
+  
+  .login-box {
+    background-color: #333333; /* Fondo gris oscuro */
+    padding: 40px;
+    border-radius: 15px; /* Bordes redondeados */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7); /* Sombra para darle profundidad */
+    text-align: center;
+    width: 300px;
+  }
+  
+  .login-title {
+    font-size: 24px;
+    color: #d4af37; /* Texto dorado */
+    margin-bottom: 20px;
+  }
+  
+  .login-input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #555555; /* Borde gris oscuro */
+    background-color: #222222; /* Fondo negro para los inputs */
+    color: #f1f1f1; /* Texto blanco */
+  }
+  
+  .login-input::placeholder {
+    color: #777777; /* Texto placeholder en gris claro */
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #d4af37; /* Botón dorado */
+    color: #1f1f1f; /* Texto oscuro */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .login-button:disabled {
+    background-color: #c29e30; /* Dorado más oscuro cuando está deshabilitado */
+  }
+  
+  .login-button:hover:not(:disabled) {
+    background-color: #b89a2d; /* Hover dorado más oscuro */
+  }
+  

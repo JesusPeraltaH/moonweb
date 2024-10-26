@@ -1,0 +1,57 @@
+.layout-container {
+    display: flex;
+    height: 100vh; /* Ajustar al 100% de la altura de la ventana */
+  }
+  
+  .sidebar {
+    width: 250px;
+    background-color: #333;
+    padding: 20px;
+    color: white;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 15px 0;
+  }
+  
+  .sidebar ul li a {
+    color: #f1f1f1;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .sidebar ul li a:hover {
+    color: #d4af37; /* Efecto hover dorado */
+  }
+  
+  .main-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #f1f1f1;
+  }
+  .logout-button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: #d4af37; /* Botón dorado */
+    color: #1f1f1f; /* Texto oscuro */
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-button:disabled {
+    background-color: #c29e30; /* Dorado más oscuro cuando está deshabilitado */
+  }
+  
+  .logout-button:hover:not(:disabled) {
+    background-color: #b89a2d; /* Hover dorado más oscuro */
+  }
