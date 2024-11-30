@@ -1,0 +1,75 @@
+/* Contenedor de categorías */
+.categories-container {
+    padding: 20px;
+    background-color: #1f1f1f !important;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    max-height: 80vh;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */
+    justify-content: center; /* Asegura que el contenido esté centrado verticalmente también */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    margin: 0 auto; /* Aplica un margen automático para centrar el contenedor */
+    max-width: 1200px; /* Ajusta el ancho máximo si es necesario */
+}
+
+/* Título de categorías */
+.categories-title {
+    color: #d4af37;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+/* Grid de categorías */
+.categories-grid {
+    display: flex;
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+    flex-wrap: wrap; /* Permite que las tarjetas se muevan a otra fila si el espacio es insuficiente */
+    gap: 20px;
+    width: 100%;
+    padding: 10px 0;
+    max-width: 100%; /* Limita el ancho del contenedor */
+    margin: 0 auto; /* Asegura que el grid también esté centrado */
+}
+
+/* Tarjeta de categoría */
+.category-item {
+    background-color: #1f1f1f; /* Igual al color de la navbar */
+    border: 2px solid #d4af37; /* Contorno dorado */
+    border-radius: 8px;
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.2s;
+    width: 200px;
+    height: 300px;
+    cursor: pointer;
+}
+
+.category-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Imagen de la categoría */
+.category-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
+}
+
+/* Estilos del texto */
+.category-name {
+    color: #d4af37;
+    font-size: 1.2em;
+    margin: 5px 0;
+}
+
+.category-price,
+.category-stock {
+    color: #f1f1f1;
+    font-size: 1em;
+}

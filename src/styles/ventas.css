@@ -1,0 +1,132 @@
+.sales-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .business-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 10px;
+    width: 250px;
+    text-align: center;
+  }
+ 
+  .business-card:hover {
+    transform: scale(1.02);
+  }
+  
+  .business-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+  }
+  
+  .business-card h3 {
+    color: #333;
+    margin: 10px 0;
+  }
+  
+  .business-card p {
+    font-size: 16px;
+    color: #555;
+  }
+  
+  .product-item {
+    color: white;
+    font-size: 1rem;
+  }
+
+  .filter-container {
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin-bottom: 20px;
+  }
+  
+  .sales-container {
+    display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-height: 80vh; /* Limitar la altura máxima al 80% del alto de la ventana */
+  overflow-y: auto; /* Habilitar el scroll vertical */
+  scrollbar-width: thin; /* Estilizar scrollbar en navegadores compatibles */
+  scrollbar-color: #FFD700 #f7f7f7; 
+  }
+  
+  .business-card {
+    margin: 20px 0;
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: #fff;
+  }
+  
+  .business-card img {
+    width: 120px;
+    height: 120px;
+    border-radius: 5px;
+    
+  }
+  
+  .business-card h3 {
+    margin: 10px 0;
+  }
+  
+  .business-card p {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Diseño de botones dorados */
+button {
+  background-color: #FFD700; /* Dorado */
+  color: #333; /* Texto en color oscuro */
+  border: 2px solid #FFD700;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: #FFCC00; /* Amarillo más oscuro al pasar el ratón */
+  border-color: #FFCC00; /* Cambio en el borde */
+}
+
+/* Diseño de inputs con bordes estilizados */
+input[type="date"] {
+  background-color: #f7f7f7; /* Fondo gris claro */
+  color: #333; /* Texto oscuro */
+  border: 2px solid #ccc; /* Borde gris */
+  border-radius: 8px;
+  padding: 10px;
+  width: 200px; /* Ajusta el tamaño del input */
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="date"]:focus {
+  border-color: #FFD700; /* Borde dorado al hacer focus */
+  outline: none;
+  background-color: #fff; /* Fondo blanco al hacer focus */
+}
+
+/* Diseño de inputs para los filtros */
+input[type="date"] {
+  margin-right: 10px;
+}
+
+label {
+  font-size: 16px;
+  color: #333;
+  margin-right: 5px;
+}

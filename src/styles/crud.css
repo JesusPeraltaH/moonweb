@@ -25,12 +25,13 @@ body, html {
     width: 100vw; /* Asegura que se expanda completamente en el ancho */
     height: 100vh;
     background-color: #1f1f1f;
+    overflow: hidden;
   
 }
 
 /* Sidebar */
 .sidebar {
-    width: 200px;
+    width: 250px;
     background-color: #333333;
     color: #f1f1f1;
     padding: 20px;
@@ -64,11 +65,13 @@ body, html {
 /* Contenedor principal del CRUD */
 .crud-container {
     flex-grow: 1;
-    padding: 20px;
-    max-width: 900px;
+    padding: 40px; /* Más espacio interno para mayor comodidad */
+    max-width: 1100px; /* Aumentamos el ancho máximo */
     margin: auto;
     background-color: #1f1f1f;
     border: none;
+    height: 100%;
+    overflow: hidden; /* Agregamos scroll vertical */
 }
 
 h1 {
@@ -109,15 +112,24 @@ h1 {
 
 /* Tabla de items */
 .crud-table-container {
-    margin-top: 20px;
-    padding: 20px;
+    margin-top: 30px;
+    padding: 30px;
     background-color: #222;
-    border-radius: 5px;
+    border-radius: 10px;
+    width: 100%; /* Aumenta el ancho de la tabla al 100% del contenedor */
+    max-width: 1100px;
 }
 
 .crud-table {
     width: 100%;
     border-collapse: collapse;
+}
+
+.crud-table img {
+    width: 50px; /* Limita el ancho de la imagen */
+    height: 50px; /* Limita la altura de la imagen */
+    border-radius: 5px;
+    object-fit: cover; /* Ajusta la imagen al tamaño */
 }
 
 .crud-table th, .crud-table td {
@@ -133,6 +145,17 @@ h1 {
 
 .crud-table tbody tr:hover {
     background-color: #333;
+}
+.crud-table .action-icons i {
+    font-size: 1.2em;
+    cursor: pointer;
+    color: #d4af37; /* Color dorado para los iconos */
+    transition: transform 0.2s;
+}
+
+.crud-table .action-icons i:hover {
+    transform: scale(1.2);
+    color: #c29e30; /* Color dorado oscuro al pasar el mouse */
 }
 
 /* Botones de acción */
@@ -169,11 +192,11 @@ h1 {
     background-color: #2a2a2a; /* Fondo oscuro del modal */
     padding: 30px;
     border-radius: 10px;
-    width: 300px;
-    max-width: 80%;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    border: none;
+    width: 400px;
+    max-width: 90%;
+    
+    
+    
 }
 
 .modal-content h2 {
@@ -224,3 +247,568 @@ h1 {
 button:focus, input:focus {
     outline: none;
 }
+
+/* Estilo para el contenedor de productos */
+.product-container {
+    position: fixed; /* Fijo para superponerse */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.8); /* Fondo oscuro translúcido */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Alinear al inicio */
+    z-index: 1000; /* Asegúrate de que esté por encima de otros elementos */
+    padding: 20px;
+    color: white;
+    z-index: 5; /* Color del texto */
+}
+
+/* Estilo para la tabla de productos */
+.product-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px; /* Espacio entre el formulario y la tabla */
+}
+
+.product-table th, .product-table td {
+    padding: 10px;
+    border: 1px solid #444;
+    color: #f1f1f1;
+    text-align: center;
+}
+
+.product-table thead {
+    background-color: #555;
+}
+
+/* Estilos para el contenedor de categorías */
+.categories-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.categories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.category-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+
+.category-image {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+
+/* Contenedor para agregar imágenes al carrusel */
+.carousel-container {
+    margin-top: 20px;
+    padding: 3%;
+    background-color: #222;
+    border-radius: 5px;
+    color: rgb(56, 53, 53);
+    max-width: 100%;
+}
+
+/* Título del carrusel */
+.carousel-container h2 {
+    color: #d4af37; /* Dorado */
+    margin-bottom: 20px;
+}
+
+/* Lista de imágenes del carrusel */
+.carousel-images-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Imagen de previsualización */
+.carousel-container img {
+    max-width: 120px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.modal-content {
+    background-color: rgba(50, 50, 50, 0.9); /* Fondo gris oscuro con opacidad */
+    color: white; /* Texto blanco para contraste */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interior */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra para profundidad */
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil */
+  }
+  
+
+  
+
+/* Estilos para el botón */
+.carousel-container .crud-btn-create {
+    background-color: #d4af37;
+    color: #1f1f1f;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.carousel-container .crud-btn-create:hover {
+    background-color: #c29e30;
+}
+
+/* Contenedor principal del CRUD */
+.crud-container {
+    flex-grow: 1;
+    padding: 40px;
+    max-width:1100px;
+    margin: auto;
+    background-color: #1f1f1f;
+    border: none;
+    height: 100%;
+    overflow-y: auto; /* Agregamos scroll vertical */
+}
+
+/* Contenedor para agregar imágenes al carrusel */
+.carousel-container {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #222;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Título del carrusel */
+.carousel-container h2 {
+    color: #d4af37; /* Dorado */
+    margin-bottom: 20px;
+}
+
+/* Lista de imágenes del carrusel */
+.carousel-images-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Imagen de previsualización */
+.carousel-container img {
+    max-width: 100px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+/* Estilos para el botón */
+.carousel-container .crud-btn-create {
+    background-color: #d4af37;
+    color: #1f1f1f;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.crud-btn-create {
+    position: relative;
+    z-index: 10; /* Asegúrate de que esté por encima de otros elementos */
+}
+
+.carousel-container .crud-btn-create:hover {
+    background-color: #c29e30;
+}
+
+/* Evitar que los botones o inputs sean resaltados al hacer click */
+button:focus, input:focus {
+    outline: none;
+}
+
+/* Estilo para el botón CRUD */
+.crud-btn {
+    background-color: #d4af37; /* Color dorado */
+    color: #1f1f1f; /* Texto oscuro */
+    padding: 12px 24px; /* Espaciado interno */
+    border: none; /* Sin borde */
+    border-radius: 8px; /* Bordes redondeados */
+    font-size: 1.1em; /* Tamaño de fuente */
+    font-weight: bold; /* Fuente en negrita */
+    cursor: pointer; /* Indicador de puntero */
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+}
+
+/* Efecto hover para el botón CRUD */
+.crud-btn:hover {
+    background-color: #c29e30; /* Color dorado más oscuro al pasar el mouse */
+    transform: scale(1.05); /* Efecto de expansión al pasar el mouse */
+}
+
+/* Estilo para el campo de entrada CRUD */
+.crud-input {
+    padding: 12px 16px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    border: 1px solid #777; /* Borde gris */
+    width: 100%; /* Se expande al 100% del contenedor */
+    max-width: 350px; /* Limita el tamaño máximo */
+    background-color: #333; /* Fondo gris oscuro */
+    color: #f1f1f1; /* Texto blanco */
+    font-size: 1em; /* Tamaño de fuente */
+    transition: border-color 0.3s, background-color 0.3s; /* Transiciones suaves */
+}
+
+/* Efecto al enfocarse en el campo de entrada CRUD */
+.crud-input:focus {
+    border-color: #d4af37; /* Borde dorado al enfocarse */
+    background-color: #444; /* Fondo más claro al enfocarse */
+    outline: none; /* Elimina el borde por defecto */
+}
+
+/* Contenedor del campo de entrada y el icono */
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 100%; /* Asegura que ocupe todo el ancho */
+    max-width: 350px;
+}
+
+.input-icon {
+    position: absolute;
+    left: 10px;
+    cursor: pointer;
+    color: #d4af37; /* Color dorado */
+    font-size: 1.5em;
+    transition: color 0.3s;
+}
+
+/* Cambio de color al pasar el ratón sobre el icono */
+.input-icon:hover {
+    color: #c29e30;
+}
+
+
+
+.crud-input:focus {
+    border-color: #d4af37;
+    background-color: #444;
+    outline: none;
+}
+
+/* Estilo del modal */
+.modal-overlay {
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8); /* Fondo oscuro */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+    background: rgba(50, 50, 50, 0.9); /* Fondo cristalino oscuro */
+  border-radius: 15px;
+  padding: 20px;
+  width: 80%;
+  max-width: 600px;
+  color: #fff;
+}
+
+.modal-content h2 {
+    color: #d4af37;
+    margin-bottom: 20px;
+}
+
+.image-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.image-table th,
+.image-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3); /* Líneas divisorias */
+}
+
+.image-table thead {
+    background-color: #555;
+}
+
+.image-table tbody tr:hover {
+    background-color: #333;
+}
+
+.crud-btn {
+    background-color: #d4af37;
+    color: #1f1f1f;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+}
+
+.crud-btn:hover {
+    background-color: #c29e30;
+}
+
+
+/* Estilos generales del modal */
+.modal-overlay {
+    position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;/* Transición para suavizar la visibilidad */
+  }
+  
+  .modal-overlay.visible {
+    visibility: visible; /* Hace visible el modal */
+    opacity: 1; /* Hace que el modal sea visible */
+    transition: opacity 0.3s ease, visibility 0s 0s; /* Transición para hacerlo aparecer */
+  }
+  
+  .modal-content {
+    background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Estilo para el botón de cerrar */
+  
+  .crud-btn:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Fondo oscuro de la página (no afecta al modal) */
+  body.modal-open {
+    overflow: hidden;
+  }
+  
+  .estado-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2em;
+  }
+
+  .product-image {
+    width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  }
+  .crud-action-btn {
+    margin: 0 5px;
+  }
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .modal-content {
+    background: #292929;
+    padding: 20px;
+    border-radius: 5px;
+    width: 90%;
+    max-width: 500px;
+  }
+  
+  .crud-product-img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .modalEditProduct-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Más opaco para mayor distinción */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* Mayor índice para estar sobre otros elementos */
+  }
+  
+  .modalEditProduct-content {
+    background: 292929;
+    padding: 20px;
+    border-radius: 8px;
+    width: 500px;
+    max-width: 90%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  .modalEditProduct-content h2 {
+    margin-top: 0;
+  }
+  
+  .crud-btn-cancel,
+  .crud-btn-save {
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+  .cart-quantity {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .quantity-value {
+    margin: 0 10px;
+    font-weight: bold;
+  }
+  
+ /* Contenedor del carrito */
+.cart-container {
+    background-color: #333; /* Fondo gris oscuro */
+    color: #fff; /* Texto blanco */
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  /* Título del carrito */
+  .cart-title {
+    color: #d4af37; /* Título dorado */
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  /* Lista de productos */
+  .cart-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  /* Elemento del producto */
+  .cart-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Imagen del producto */
+  .cart-item-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+    border-radius: 4px;
+    object-fit: cover;
+    border: 1px solid #ccc;
+  }
+  
+  /* Detalles del producto */
+  .cart-item-details {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  /* Nombre del producto */
+  .cart-item-name {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  /* Cantidad del producto */
+  .cart-quantity {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  /* Separador entre productos */
+  .cart-item-separator {
+    border: 0;
+    height: 1px;
+    background: #555; /* Línea separadora gris oscuro */
+    margin: 10px 0;
+  }
+  
+  /* Total del carrito */
+  .cart-total {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  
+  /* Botones de acción */
+  .cart-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+
+  /* Imagen del producto */
+.cart-item-image-container {
+    width: 60px; /* Ancho del contenedor */
+    margin-right: 10px; /* Espacio entre la imagen y el texto */
+    flex-shrink: 0; /* Evita que la imagen cambie de tamaño en un diseño flexible */
+  }
+  
+  .cart-item-image-container img {
+    width: 100%; /* Ancho completo del contenedor */
+    height: auto; /* Ajusta automáticamente la altura */
+    border-radius: 4px; /* Bordes redondeados */
+    object-fit: cover; /* Asegura que la imagen se adapte al tamaño del contenedor */
+  }
+
+  
+  .image-table th {
+    color: #ffd700; /* Dorado para los encabezados */
+  }
+  
+  .delete-btn {
+    background-color: #ff4c4c; /* Rojo para eliminar */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .delete-btn:hover {
+    background-color: #ff0000;
+  }
+  

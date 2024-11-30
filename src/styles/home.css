@@ -1,14 +1,19 @@
 /* Estilo general */
+
+
+
 body {
     background-color: #1f1f1f; /* Fondo gris oscuro */
     color: #f1f1f1; /* Texto en blanco/gris claro */
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
+    min-height: 100vh; /* Asegura que el body ocupe al menos el 100% de la pantalla */
+    display: flex;
+    flex-direction: column; /* Usar flexbox para distribución de los elementos */
 }
 
 /* Navbar */
-/* Ajustes para evitar bugs en la navbar */
 .navbar {
     background-color: #333333; /* Fondo negro */
     color: #f1f1f1; /* Texto gris claro */
@@ -39,7 +44,6 @@ body {
     display: flex; /* Flexbox para los botones */
     gap: 10px; /* Añadir espaciado entre los botones */
 }
-
 
 /* Botones */
 .btn {
@@ -75,8 +79,8 @@ button.btn-secondary:hover {
 }
 
 .carousel-item img {
-    height: 400px; /* Altura fija para las imágenes */
-    object-fit: cover; /* Ajustar la imagen */
+    height: 50vh; /* Ajustar la altura de las imágenes en relación a la ventana */
+    object-fit: cover; /* Ajuste de la imagen */
     border-bottom: 5px solid #d4af37; /* Borde dorado */
 }
 
@@ -85,29 +89,6 @@ button.btn-secondary:hover {
     background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente */
     padding: 5px;
     border-radius: 5px; /* Bordes redondeados */
-}
-
-/* Tabla */
-.table {
-    margin-top: 20px;
-    background-color: #222222; /* Fondo gris oscuro */
-    border-radius: 5px; /* Bordes redondeados */
-}
-
-.table thead {
-    background-color: #555555; /* Encabezado gris oscuro */
-}
-
-.table th, .table td {
-    color: #f1f1f1; /* Texto blanco/gris claro */
-    padding: 10px;
-    border: 1px solid #444444; /* Bordes gris oscuro */
-    text-align: center; /* Centrar texto */
-    vertical-align: middle; /* Centrar verticalmente */
-}
-
-.table tbody tr:hover {
-    background-color: #333333; /* Hover en fondo negro */
 }
 
 /* Grid de tarjetas */
@@ -158,3 +139,206 @@ button.btn-secondary:hover {
 .card h5, .card p {
     margin: 0;
 }
+
+/* Contenedor principal */
+.home-container {
+    min-height: 1000px; /* Altura mínima */
+    max-height: 100vh; /* Limitar la altura a un máximo de 80% de la altura de la ventana */
+    overflow-y: auto;/* Permitir el scroll si el contenido excede la altura */
+}
+
+/* Contenedor de contenido */
+.cart-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  
+  .cart-count {
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+  
+  .cart-container {
+    position: fixed;
+    top: 50px;
+    right: 20px;
+    width: 300px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    z-index: 1000;
+    border-radius: 10px;
+  }
+  
+  .cart-container ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .cart-container li {
+    margin-bottom: 10px;
+  }
+
+  .search-bar {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    width: 100%;
+  }
+  
+  .search-input {
+    width: 80%; /* Ajusta el ancho del input */
+    padding: 12px 16px; /* Espaciado interno */
+    font-size: 16px; /* Tamaño del texto */
+    background-color: #333333; /* Fondo gris oscuro */
+    color: #f1f1f1; /* Texto en blanco */
+    border: 2px solid #777777; /* Borde gris */
+    border-radius: 8px; /* Bordes redondeados */
+    outline: none; /* Quita el borde azul al enfocarse */
+    transition: border 0.3s ease; 
+  }
+  
+  .search-bar-dropdown {
+    position: relative;
+    width: 100%;
+  }
+  
+  .search-input {
+    width: 100%;
+    padding: 8px;
+    font-size: 16px;
+  }
+  
+  .dropdown-results {
+    position: absolute;
+    width: 80%;
+    max-height: 200px;
+    overflow-y: auto; /* Scroll si hay muchos resultados */
+    background-color: #41404B; /* Fondo gris más oscuro */
+    border: 1px solid #d4af37; /* Borde dorado */
+    z-index: 1000;
+    color: #f1f1f1; /* Texto blanco */
+    border-radius: 5px;
+  }
+
+  .search-input:hover,
+.search-input:focus {
+    border-color: #d4af37; /* Borde dorado al pasar el cursor o enfocar */
+}
+  
+  .dropdown-item {
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    color: #f1f1f1; /* Texto blanco */
+  }
+  
+  .dropdown-item:hover {
+    background-color: #333333; /* Fondo más oscuro al pasar el cursor */
+    color: #f1f1f1; 
+  }
+  
+  .cart-icon {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 24px; /* Ajusta el tamaño del ícono */
+  }
+  
+  .cart-icon .fa-shopping-cart {
+    margin-right: 8px; /* Añade espacio entre el ícono y el contador */
+    color: #333; /* Cambia el color del ícono si es necesario */
+  }
+  
+  .cart-count {
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 4px 8px;
+    font-size: 12px;
+    font-weight: bold;
+    position: relative;
+    top: -10px;
+    right: -10px;
+  }
+  
+
+  :root {
+    --cart-bg-color: #2c2c2c; /* Fondo del carrito */
+    --cart-title-color: gold; /* Color del título */
+    --cart-text-color: #fff; /* Color del texto */
+    --cart-button-spacing: 10px; /* Espaciado entre botones */
+  }
+  
+  .cart-container {
+    background-color: var(--cart-bg-color);
+    color: var(--cart-text-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .cart-title {
+    color: var(--cart-title-color);
+    margin-bottom: 20px;
+    font-size: 1.5em;
+  }
+  
+  .cart-list {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .cart-item {
+    margin-bottom: 10px;
+  }
+  
+  .cart-total {
+    margin-top: 20px;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+  
+  .cart-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: var(--cart-button-spacing);
+  }
+  
+  .btn-primary {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-secondary {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-primary:hover {
+    background-color: #218838;
+  }
+  
+  .btn-secondary:hover {
+    background-color: #c82333;
+  }
+  
